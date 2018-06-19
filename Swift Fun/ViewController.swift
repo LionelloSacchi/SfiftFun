@@ -11,13 +11,31 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var buttonCount = 0
+//    var buttonCount = 0
     
     @IBOutlet weak var coolLabel: UILabel!
+    @IBOutlet weak var TopTextField: UITextField!
+    @IBOutlet weak var BottonTextField: UITextField!
+    @IBOutlet weak var AdditionSwitch: UISwitch!
     
-    @IBAction func ButtonTapped(_ sender: Any) {
+    @IBAction func ButtonTapped(_ sender: Any)
+    {
+        let addition = AdditionSwitch.isOn
         
-        buttonCount = buttonCount + 1
+        if(addition)
+        {
+            let something = Double(TopTextField.text!)! + Double(BottonTextField.text!)!
+            coolLabel.text = "\(TopTextField.text!) + \(BottonTextField.text!) = \(something)"
+        }
+        else
+        {
+            let something = Double(TopTextField.text!)! - Double(BottonTextField.text!)!
+            coolLabel.text = "\(TopTextField.text!) - \(BottonTextField.text!) = \(something)"
+        }
+        
+        
+    /*
+        buttonCount += 1
         
         print(buttonCount)
         
@@ -30,7 +48,9 @@ class ViewController: UIViewController {
             view.backgroundColor = UIColor.green
             coolLabel.text = "COOLER!"
         }
-    }
+*/
+ 
+ }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
